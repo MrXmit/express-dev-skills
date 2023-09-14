@@ -16,11 +16,10 @@ function index(req, res) {
 
 function newSkill(req, res) {
     res.render('skills/new')
-}
+} 
 
 function create(req, res) {
     req.body.done = false
-    console.log(req.body)
     Skill.create(req.body)
         .then(skill => {
             res.redirect('/skills')
@@ -45,7 +44,6 @@ function show(req, res) {
 }
 
 function deleteSkill(req, res) {
-    console.log('AAAAAAAAAA')
     Skill.findByIdAndDelete(req.params.skillId)
         .then(skill => {
             res.redirect('/skills')
