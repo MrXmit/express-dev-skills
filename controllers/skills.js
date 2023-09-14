@@ -29,7 +29,16 @@ function index(req, res) {
       res.redirect('/skills')
     })
   }
-  
+  function deleteskill(req, res) {
+    skill.findByIdAndDelete(req.params.skillId)
+    .then(skill => {
+      res.redirect('/skills')
+    })
+    .catch(error => {
+      console.log(error)
+      res.redirect('/skills')
+    })
+  }
 //   function show(req, res) {
 //     Todo.findById(req.params.todoId)
 //     .then(todo => {
@@ -48,5 +57,6 @@ export{
     index,
     newSkill as new,
     create,
+    deleteskill as delete,
     // show
 }
