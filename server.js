@@ -1,7 +1,10 @@
+import "dotenv/config.js"
+
 // import npm packages
 import express from 'express'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import './config/database.js'
 import createError from 'http-errors'
 import logger from 'morgan'
 
