@@ -20,6 +20,7 @@ function index(req, res) {
   
   function create(req, res) {
     req.body.done = false
+    console.log(req.body)
     Skill.create(req.body)
     .then(skill => {
       res.redirect('/skills')
@@ -39,18 +40,18 @@ function index(req, res) {
       res.redirect('/skills')
     })
   }
-//   function show(req, res) {
-//     Todo.findById(req.params.todoId)
-//     .then(todo => {
-//       res.render('todos/show', {
-//         todo: todo
-//       })
-//     })
-//     .catch(error => {
-//       console.log(error)
-//       res.redirect('/todos')
-//     })
-//   }
+  function show(req, res) {
+    Skill.findById(req.params.skillId)
+    .then(skill => {
+      res.render('skills/show', {
+        skill: skill
+      })
+    })
+    .catch(error => {
+      console.log(error)
+      res.redirect('/todos')
+    })
+  }
   
 
 export{
@@ -58,5 +59,5 @@ export{
     newSkill as new,
     create,
     deleteskill as delete,
-    // show
+    show
 }
