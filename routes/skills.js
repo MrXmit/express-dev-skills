@@ -3,13 +3,11 @@ import * as skillsCtrl from '../controllers/skills.js'
 
 const router = Router()
 
-// GET localhost:3000/users
-router.get('/', function (req, res) {
-  res.render('skills/index', {
-    skills: skillsCtrl.skills
-  })
+router.get('/', skillsCtrl.index)
+router.get('/new', skillsCtrl.new)
+router.post('/', skillsCtrl.create)
+// router.get('/:skillId', skillsCtrl.show)
 
-})
 
 export { router }
 

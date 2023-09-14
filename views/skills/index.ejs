@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dev skills</title>
 </head>
+
 <body>
   <h1>Skills</h1>
   <ul>
-    <% skills.forEach(skill => { %>
+    <% skills.forEach(skill=> { %>
       <li>
-				<%= skill.desc %> 
-				- 
-				<%= skill.certified ? 'done' : 'not done' %>
-			</li>
-    <% }) %>
+        <a href="/skills/<%= skill._id %>">
+          <%= skill.desc %>
+        </a>
+        -
+        <%= skill.level %>
+          -
+          <%= skill.certified ? 'certified' : 'not certified' %>
+      </li>
+      <% }) %>
   </ul>
+  <a href="/skills/new">Add skill</a>
+
 </body>
+
 </html>
