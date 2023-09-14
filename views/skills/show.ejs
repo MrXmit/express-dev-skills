@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <h1>Skills</h1>
-  <h2>skill #<%= skill._id %></h2>
-  <h3><%= skill.desc %></h3>
-  <h4><%= skill.level %></h4>
-  <p>Certified: <%= skill.certified ? 'Yes' : 'No' %></p>
-  <a href="/skills/<%= skill._id %>/edit">Edit</a>
+  <h2>skill #<%= skill._id %>
+  </h2>
+  <h3>
+    <%= skill.desc %>
+  </h3>
+  <h4>
+    <%= skill.level %>
+  </h4>
+  <p>Certified: <%= skill.certified ? 'Yes' : 'No' %>
+  </p>
   <a href="/skills">Go back</a>
+
+  <form action="/skills/<%= skill._id %>?_method=DELETE" class="delete-form" method="POST">
+    <button type="submit">Delete</button>
+  </form>
 </body>
+
 </html>
